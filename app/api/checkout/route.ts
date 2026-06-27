@@ -3,11 +3,14 @@ import Stripe from "stripe";
 import { TIERS } from "@/lib/tiers";
 import type { CartItem } from "@/lib/cart";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-06-24.dahlia",
-});
-
 export async function POST(req: NextRequest) {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return NextResponse.json({ error: "Stripe not configured" }, { status: 503 });
+  }
+
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: "2026-06-24.dahlia",
+  });
   const { items }: { items: CartItem[] } = await req.json();
 
   const line_items = items.map((item) => {
