@@ -3,8 +3,33 @@
 :root {
   --background: #faf7f2;
   --foreground: #1a1207;
-  --amber: #c47c2b;
-  --amber-light: #f0c070;
+  --card: #ffffff;
+  --border: #e8d9c0;
+  --muted: #a07850;
+  --amber-heading: #7c3d0f;
+  --amber-body: #92580a;
+  --amber-subtle: #b07030;
+  --amber-accent: #d97706;
+  --amber-btn: #d97706;
+  --amber-btn-hover: #b45309;
+  --amber-badge: #92400e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #141008;
+    --foreground: #f5e6cc;
+    --card: #1e1609;
+    --border: #3a2a14;
+    --muted: #a07850;
+    --amber-heading: #f5c97a;
+    --amber-body: #d4a55a;
+    --amber-subtle: #a07840;
+    --amber-accent: #f59e0b;
+    --amber-btn: #d97706;
+    --amber-btn-hover: #b45309;
+    --amber-badge: #fbbf24;
+  }
 }
 
 @theme inline {
@@ -16,6 +41,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Georgia, 'Times New Roman', serif;
+}
+
+.btn-amber {
+  background-color: var(--amber-btn);
+}
+.btn-amber:hover {
+  background-color: var(--amber-btn-hover);
 }
 
 @keyframes fadeInUp {

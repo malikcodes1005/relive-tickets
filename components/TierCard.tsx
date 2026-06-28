@@ -23,35 +23,36 @@ export default function TierCard({ tier, delay = 0 }: { tier: Tier; delay?: numb
 
   return (
     <div
-      className={`relative flex flex-col rounded-2xl border p-8 shadow-sm transition-shadow hover:shadow-md fade-in-up ${
-        isPopular
-          ? "border-amber-400 bg-amber-50"
-          : isPremium
-          ? "border-amber-700 bg-amber-900/5"
-          : "border-amber-200 bg-white"
-      }`}
-      style={{ animationDelay: `${delay}ms` }}
+      className="relative flex flex-col rounded-2xl p-8 shadow-sm transition-shadow hover:shadow-md fade-in-up"
+      style={{
+        border: `1px solid ${isPopular ? "var(--amber-accent)" : isPremium ? "var(--amber-body)" : "var(--border)"}`,
+        backgroundColor: "var(--card)",
+        animationDelay: `${delay}ms`,
+      }}
     >
       {tier.badge && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+        <span
+          className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide"
+          style={{ backgroundColor: "var(--amber-badge)" }}
+        >
           {tier.badge}
         </span>
       )}
 
       <div className="mb-4">
-        <h3 className="text-lg font-bold text-amber-900">{tier.name}</h3>
-        <p className="text-sm text-amber-700 mt-1">{tier.description}</p>
+        <h3 className="text-lg font-bold" style={{ color: "var(--amber-heading)" }}>{tier.name}</h3>
+        <p className="text-sm mt-1" style={{ color: "var(--amber-body)" }}>{tier.description}</p>
       </div>
 
       <div className="mb-6">
-        <span className="text-4xl font-bold text-amber-900">${tier.price.toFixed(2)}</span>
-        <span className="text-sm text-amber-600 ml-1">/ stub</span>
+        <span className="text-4xl font-bold" style={{ color: "var(--amber-heading)" }}>${tier.price.toFixed(2)}</span>
+        <span className="text-sm ml-1" style={{ color: "var(--amber-subtle)" }}>/ stub</span>
       </div>
 
       <ul className="space-y-2 mb-8 flex-1">
         {tier.features.map((f) => (
-          <li key={f} className="flex items-start gap-2 text-sm text-amber-800">
-            <Check size={16} className="text-amber-600 mt-0.5 shrink-0" />
+          <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "var(--amber-body)" }}>
+            <Check size={16} className="mt-0.5 shrink-0" style={{ color: "var(--amber-accent)" }} />
             {f}
           </li>
         ))}
@@ -63,27 +64,38 @@ export default function TierCard({ tier, delay = 0 }: { tier: Tier; delay?: numb
           placeholder="Event name (e.g. Taylor Swift — MSG)"
           value={eventName}
           onChange={(e) => setEventName(e.target.value)}
-          className="w-full border border-amber-200 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-400"
+          className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2"
+          style={{
+            border: "1px solid var(--border)",
+            backgroundColor: "var(--background)",
+            color: "var(--foreground)",
+          }}
         />
         <input
           type="text"
           placeholder="Event date (e.g. Aug 5, 2019)"
           value={eventDate}
           onChange={(e) => setEventDate(e.target.value)}
-          className="w-full border border-amber-200 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-400"
+          className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2"
+          style={{
+            border: "1px solid var(--border)",
+            backgroundColor: "var(--background)",
+            color: "var(--foreground)",
+          }}
         />
         <button
           onClick={handleAdd}
           disabled={!eventName.trim()}
-          className={`w-full py-3 rounded-xl font-semibold text-sm transition-all ${
-            added
-              ? "bg-green-600 text-white"
+          className="w-full py-3 rounded-xl font-semibold text-sm transition-all text-white"
+          style={{
+            backgroundColor: added
+              ? "#16a34a"
               : !eventName.trim()
-              ? "bg-amber-200 text-amber-400 cursor-not-allowed"
-              : isPremium
-              ? "bg-amber-800 text-white hover:bg-amber-900"
-              : "bg-amber-600 text-white hover:bg-amber-700"
-          }`}
+              ? "var(--border)"
+              : "var(--amber-btn)",
+            color: !eventName.trim() ? "var(--muted)" : "white",
+            cursor: !eventName.trim() ? "not-allowed" : "pointer",
+          }}
         >
           {added ? "✓ Added to Cart" : "Add to Cart"}
         </button>
