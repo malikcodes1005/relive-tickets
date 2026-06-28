@@ -2,7 +2,7 @@
 
 export default function HeroBackground() {
   return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
       {/* Deep stage black base */}
       <div className="absolute inset-0" style={{ backgroundColor: "#020101" }} />
 

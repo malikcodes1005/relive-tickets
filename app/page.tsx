@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import TierCard from "@/components/TierCard";
 import HeroBackground from "@/components/HeroBackground";
+import StickyCartBar from "@/components/StickyCartBar";
 import { TIERS } from "@/lib/tiers";
 import Link from "next/link";
 
@@ -29,7 +30,7 @@ export default function Home() {
       <Navbar />
       <main>
         {/* ── HERO ── live concert strobe backdrop */}
-        <section className="relative overflow-hidden py-32 px-6 text-center" style={{ backgroundColor: "#020101", minHeight: "100svh" }}>
+        <section className="relative overflow-hidden py-20 md:py-32 px-4 sm:px-6 text-center" style={{ backgroundColor: "#020101", minHeight: "100svh" }}>
           <HeroBackground />
 
           {/* Photosensitivity notice */}
@@ -39,7 +40,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="relative z-10 max-w-3xl mx-auto" style={{ paddingTop: "4rem" }}>
+          <div className="relative z-10 max-w-3xl mx-auto" style={{ paddingTop: "2rem" }}>
             <p className="text-sm font-semibold tracking-widest uppercase mb-5 fade-in-up" style={{ color: "var(--energy)" }}>
               ● LIVE NOW — Official Ticket Stub Reprints
             </p>
@@ -107,7 +108,7 @@ export default function Home() {
         </div>
 
         {/* ── HOW IT WORKS ── */}
-        <section id="how-it-works" className="py-24 px-6" style={{ backgroundColor: "var(--background)" }}>
+        <section id="how-it-works" className="py-16 md:py-24 px-4 sm:px-6" style={{ backgroundColor: "var(--background)" }}>
           <div className="max-w-5xl mx-auto">
             <p className="text-center text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "var(--energy)" }}>Simple process</p>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-16" style={{ color: "var(--amber-heading)" }}>From memory to your hands in days</h2>
@@ -126,7 +127,7 @@ export default function Home() {
         {/* ── TIERS ── */}
         <section
           id="tiers"
-          className="py-24 px-6"
+          className="py-16 md:py-24 px-4 sm:px-6"
           style={{ background: "linear-gradient(to bottom, color-mix(in srgb, var(--amber-accent) 5%, var(--background)), var(--background))" }}
         >
           <div className="max-w-6xl mx-auto">
@@ -146,7 +147,7 @@ export default function Home() {
         </section>
 
         {/* ── TESTIMONIALS ── */}
-        <section className="py-24 px-6" style={{ backgroundColor: "var(--background)" }}>
+        <section className="py-16 md:py-24 px-4 sm:px-6" style={{ backgroundColor: "var(--background)" }}>
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-16" style={{ color: "var(--amber-heading)" }}>Real fans. Real nights.</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -167,7 +168,7 @@ export default function Home() {
 
         {/* ── PULL QUOTE — marquee treatment ── */}
         <section
-          className="py-24 px-6 text-center relative overflow-hidden"
+          className="py-16 md:py-24 px-4 sm:px-6 text-center relative overflow-hidden"
           style={{ backgroundColor: "#050302" }}
         >
           {/* Stage-light glow behind text */}
@@ -188,7 +189,7 @@ export default function Home() {
         </section>
 
         {/* ── FAQ ── */}
-        <section id="faq" className="py-24 px-6" style={{ backgroundColor: "var(--background)" }}>
+        <section id="faq" className="py-16 md:py-24 px-4 sm:px-6" style={{ backgroundColor: "var(--background)" }}>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-16" style={{ color: "var(--amber-heading)" }}>Got questions?</h2>
             <div className="space-y-6">
@@ -204,7 +205,7 @@ export default function Home() {
 
         {/* ── FINAL CTA ── */}
         <section
-          className="py-20 px-6 text-center"
+          className="py-14 md:py-20 px-4 sm:px-6 text-center"
           style={{ background: "linear-gradient(to bottom, var(--background), color-mix(in srgb, var(--energy) 6%, var(--background)))" }}
         >
           <div className="max-w-xl mx-auto">
@@ -219,6 +220,7 @@ export default function Home() {
         </section>
       </main>
 
+      <StickyCartBar />
       <footer
         className="py-10 px-6 text-center text-sm"
         style={{ borderTop: "1px solid var(--border)", backgroundColor: "#050302", color: "var(--amber-subtle)" }}

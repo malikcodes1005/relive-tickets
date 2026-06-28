@@ -5,7 +5,7 @@ export default function OrderSuccess() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 flex flex-col items-center justify-center py-32 px-6 text-center">
+      <main className="flex-1 flex flex-col items-center justify-center py-20 px-4 text-center">
         <div className="text-6xl mb-6">🎟️</div>
         <h1 className="text-3xl font-bold mb-3" style={{ color: "var(--amber-heading)" }}>Order Confirmed!</h1>
         <p className="max-w-md mb-2" style={{ color: "var(--amber-body)" }}>
