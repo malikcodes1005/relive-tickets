@@ -1,41 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf7f2;
-  --foreground: #1a1207;
+  /* Brand: light mode — warm cream base */
+  --background: #f9f6f0;
+  --foreground: #0a0a0a;
   --card: #ffffff;
-  --border: #e8d9c0;
-  --muted: #906040;
-  --amber-heading: #5a1f00;
-  --amber-body: #6b2e00;
-  --amber-subtle: #8a4000;
-  --amber-accent: #b35000;
-  --amber-btn: #d97706;
-  --amber-btn-hover: #b45309;
-  --amber-badge: #7c2d00;
-  /* energy accent — concert red */
-  --energy: #e0383d;
-  --energy-dark: #b82020;
-  --energy-glow: rgba(224, 56, 61, 0.35);
+  --border: #e0d4b8;
+  --muted: #8a7050;
+  --gold-flat: #d9a92b;
+  --gold-gradient: linear-gradient(135deg, #FCE9A8 0%, #D9A92B 25%, #F4D571 50%, #B8841A 75%, #E8C158 100%);
+  --amber-heading: #7a4800;
+  --amber-body: #6b3a00;
+  --amber-subtle: #9a6010;
+  --amber-accent: #d9a92b;
+  --amber-btn: #d9a92b;
+  --amber-btn-hover: #b8841a;
+  --amber-badge: #7a4800;
+  /* Brand red */
+  --energy: #d62828;
+  --energy-dark: #b01e1e;
+  --energy-glow: rgba(214, 40, 40, 0.35);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0c0804;
-    --foreground: #fff8ee;
-    --card: #181008;
-    --border: #3a2a14;
-    --muted: #b08860;
-    --amber-heading: #ffe066;
-    --amber-body: #ffd040;
-    --amber-subtle: #e0a820;
-    --amber-accent: #ffc000;
-    --amber-btn: #d97706;
-    --amber-btn-hover: #b45309;
-    --amber-badge: #fbbf24;
-    --energy: #ff4448;
-    --energy-dark: #e02020;
-    --energy-glow: rgba(255, 68, 72, 0.4);
+    /* Brand: dark mode — true brand black */
+    --background: #0a0a0a;
+    --foreground: #ffffff;
+    --card: #141414;
+    --border: #2a2018;
+    --muted: #a08050;
+    --gold-flat: #d9a92b;
+    --gold-gradient: linear-gradient(135deg, #FCE9A8 0%, #D9A92B 25%, #F4D571 50%, #B8841A 75%, #E8C158 100%);
+    --amber-heading: #d9a92b;
+    --amber-body: #c49020;
+    --amber-subtle: #a07010;
+    --amber-accent: #d9a92b;
+    --amber-btn: #d9a92b;
+    --amber-btn-hover: #b8841a;
+    --amber-badge: #d9a92b;
+    --energy: #d62828;
+    --energy-dark: #b01e1e;
+    --energy-glow: rgba(214, 40, 40, 0.4);
   }
 }
 
@@ -48,6 +54,23 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* Shiny gold gradient text */
+.gold-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Shiny gold gradient button */
+.btn-gold {
+  background: var(--gold-gradient);
+  color: #0a0a0a;
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #F4D571 0%, #E8C158 25%, #FCE9A8 50%, #D9A92B 75%, #B8841A 100%);
 }
 
 .btn-amber {

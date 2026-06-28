@@ -25,8 +25,8 @@ export default function Navbar() {
         }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight" style={{ color: "var(--amber-heading)" }}>
-            THE STUB <span style={{ color: "var(--energy)" }}>ARCHIVE</span>
+          <Link href="/" className="text-xl font-bold tracking-tight">
+            <span className="gold-text">THE STUB </span><span style={{ color: "var(--energy)" }}>ARCHIVE</span>
           </Link>
 
           {/* Desktop nav */}

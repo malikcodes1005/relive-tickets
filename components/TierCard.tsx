@@ -66,11 +66,11 @@ export default function TierCard({ tier, delay = 0 }: { tier: Tier; delay?: numb
             {tier.badge}
           </span>
         )}
-        <h3 className="text-lg font-bold" style={{ color: "var(--amber-heading)" }}>{tier.name}</h3>
+        <h3 className="text-lg font-bold gold-text">{tier.name}</h3>
         <p className="text-sm mt-1" style={{ color: "var(--amber-body)" }}>{tier.description}</p>
         <div className="my-5">
-          <span className="text-4xl font-bold" style={{ color: "var(--amber-heading)" }}>${tier.price.toFixed(2)}</span>
-          <span className="text-sm ml-1" style={{ color: "var(--amber-subtle)" }}>/ stub</span>
+          <span className="text-4xl font-bold gold-text">${tier.price.toFixed(2)}</span>
+          <span className="text-sm ml-1" style={{ color: "var(--muted)" }}>/ stub</span>
         </div>
         <ul className="space-y-2">
           {tier.features.map((f) => (

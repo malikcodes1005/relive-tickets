@@ -61,12 +61,12 @@ export default function TicketPreview({ eventName, eventDate, tierName, isHolo, 
           <div className="relative px-4 pt-4 pb-4">
             <div className="flex justify-between items-start mb-3">
               <div>
-                <p className="text-[9px] tracking-widest font-bold" style={{ color: "#f59e0b" }}>THE STUB ARCHIVE</p>
+                <p className="text-[9px] tracking-widest font-bold" style={{ color: "#d9a92b" }}>THE STUB ARCHIVE</p>
                 <p className="text-[8px] tracking-widest mt-0.5" style={{ color: photoDataUrl ? "#e0c080" : "#a07030" }}>OFFICIAL REPRINT</p>
               </div>
               <div className="text-right">
                 <p className="text-[8px]" style={{ color: photoDataUrl ? "#e0c080" : "#a07030" }}>ADMIT ONE</p>
-                <p className="text-[9px] font-bold mt-0.5" style={{ color: "#f5c97a" }}>{tierName.toUpperCase()}</p>
+                <p className="text-[9px] font-bold mt-0.5" style={{ color: "#d9a92b" }}>{tierName.toUpperCase()}</p>
               </div>
             </div>
 
@@ -79,11 +79,11 @@ export default function TicketPreview({ eventName, eventDate, tierName, isHolo, 
             <div className="flex justify-between items-end">
               <div>
                 <p className="text-[8px]" style={{ color: photoDataUrl ? "#e0c080" : "#a07030" }}>DATE</p>
-                <p className="text-[10px] font-bold" style={{ color: "#f5c97a" }}>{displayDate}</p>
+                <p className="text-[10px] font-bold" style={{ color: "#d9a92b" }}>{displayDate}</p>
               </div>
               <div className="text-right">
                 <p className="text-[8px]" style={{ color: photoDataUrl ? "#e0c080" : "#a07030" }}>SECTION</p>
-                <p className="text-[10px] font-bold" style={{ color: "#f5c97a" }}>FLOOR</p>
+                <p className="text-[10px] font-bold" style={{ color: "#d9a92b" }}>FLOOR</p>
               </div>
             </div>
 
@@ -97,11 +97,11 @@ export default function TicketPreview({ eventName, eventDate, tierName, isHolo, 
             <div className="flex justify-between items-center">
               <div>
                 <p className="text-[8px]" style={{ color: photoDataUrl ? "#e0c080" : "#a07030" }}>THE STUB ARCHIVE</p>
-                <p className="text-[9px] font-bold" style={{ color: "#f5c97a" }}>KEEP THIS STUB</p>
+                <p className="text-[9px] font-bold" style={{ color: "#d9a92b" }}>KEEP THIS STUB</p>
               </div>
               <div className="flex gap-px items-end h-6">
                 {[3,2,4,1,3,2,3,4,2,1,3,2,4,3,1,2,3].map((h, i) => (
-                  <div key={i} style={{ width: 2, height: `${h * 5}px`, backgroundColor: "#f5c97a", opacity: 0.7 }} />
+                  <div key={i} style={{ width: 2, height: `${h * 5}px`, backgroundColor: "#d9a92b", opacity: 0.7 }} />
                 ))}
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function TicketPreview({ eventName, eventDate, tierName, isHolo, 
         ) : (
           /* BACK */
           <div className="relative px-5 py-5 min-h-40" style={{ background: "linear-gradient(135deg, #1a0a00, #2d1200)" }}>
-            <p className="text-[9px] tracking-widest font-bold mb-3" style={{ color: "#f59e0b" }}>EVENT RECAP</p>
+            <p className="text-[9px] tracking-widest font-bold mb-3" style={{ color: "#d9a92b" }}>EVENT RECAP</p>
             {backNotes ? (
               <p className="text-xs leading-relaxed whitespace-pre-wrap" style={{ color: "#f5e6cc" }}>{backNotes}</p>
             ) : (

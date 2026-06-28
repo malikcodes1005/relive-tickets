@@ -30,7 +30,7 @@ export default function Home() {
       <Navbar />
       <main>
         {/* ── HERO ── live concert strobe backdrop */}
-        <section className="relative overflow-hidden py-20 md:py-32 px-4 sm:px-6 text-center" style={{ backgroundColor: "#020101", minHeight: "100svh" }}>
+        <section className="relative overflow-hidden py-20 md:py-32 px-4 sm:px-6 text-center" style={{ backgroundColor: "#0a0a0a", minHeight: "100svh" }}>
           <HeroBackground />
 
           {/* Photosensitivity notice */}
@@ -44,9 +44,9 @@ export default function Home() {
             <p className="text-sm font-semibold tracking-widest uppercase mb-5 fade-in-up" style={{ color: "var(--energy)" }}>
               ● LIVE NOW — Official Ticket Stub Reprints
             </p>
-            <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] fade-in-up-2" style={{ color: "#fff8ee", textShadow: "0 2px 40px rgba(0,0,0,0.9), 0 0 80px rgba(0,0,0,0.6)" }}>
+            <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] fade-in-up-2" style={{ color: "#ffffff", textShadow: "0 2px 40px rgba(0,0,0,0.9), 0 0 80px rgba(0,0,0,0.6)" }}>
               You were there.<br />
-              <span style={{ color: "var(--amber-accent)" }}>Now you can prove it.</span>
+              <span className="gold-text">Now you can prove it.</span>
             </h1>
             <p className="mt-6 text-lg max-w-xl mx-auto fade-in-up-3" style={{ color: "#c4a06a", textShadow: "0 1px 20px rgba(0,0,0,0.8)" }}>
               We turn your greatest nights — the sold-out shows, the overtime wins, the concerts you still talk about — into premium collector stubs that actually feel like something.
@@ -58,7 +58,7 @@ export default function Home() {
               <a
                 href="#how-it-works"
                 className="px-8 py-4 rounded-xl font-semibold transition-colors"
-                style={{ border: "1px solid rgba(245,158,11,0.4)", color: "#c4a06a", backgroundColor: "rgba(245,158,11,0.06)" }}
+                style={{ border: "1px solid rgba(217,169,43,0.4)", color: "#d9a92b", backgroundColor: "rgba(217,169,43,0.06)" }}
               >
                 See How It Works
               </a>
@@ -68,30 +68,29 @@ export default function Home() {
           {/* Stub cards — full contrast, visible */}
           <div className="relative z-10 mt-20 flex justify-center gap-5">
             {[
-              { label: "Bruce Springsteen", sub: "Born in the USA Tour · 1984", rot: "-3deg", color: "#e8c060" },
-              { label: "NBA Finals — Game 7", sub: "Cleveland vs Golden State · 2016", rot: "0deg", color: "#ff9a3c", scale: "1.08" },
-              { label: "Beyoncé — Renaissance", sub: "SoFi Stadium · Aug 2023", rot: "3deg", color: "#e8c060" },
+              { label: "Bruce Springsteen", sub: "Born in the USA Tour · 1984", rot: "-3deg", scale: "1" },
+              { label: "NBA Finals — Game 7", sub: "Cleveland vs Golden State · 2016", rot: "0deg", scale: "1.08" },
+              { label: "Beyoncé — Renaissance", sub: "SoFi Stadium · Aug 2023", rot: "3deg", scale: "1" },
             ].map((item) => (
               <div
                 key={item.label}
                 className="hidden md:flex flex-col w-44 rounded-xl p-4 font-mono stub-card-glow"
                 style={{
-                  background: "linear-gradient(160deg, #1e1206 0%, #2d1a08 100%)",
-                  border: `1px solid rgba(245,180,50,0.4)`,
-                  transform: `rotate(${item.rot}) scale(${item.scale ?? 1})`,
-                  color: item.color,
+                  background: "linear-gradient(160deg, #141414 0%, #1e1a10 100%)",
+                  border: `1px solid rgba(217,169,43,0.35)`,
+                  transform: `rotate(${item.rot}) scale(${item.scale})`,
                   transition: "transform 0.2s",
                 }}
               >
                 <div className="flex justify-between items-start mb-3">
-                  <span className="text-[9px] tracking-widest font-bold" style={{ color: "var(--energy)" }}>THE STUB ARCHIVE</span>
-                  <span className="text-[9px]" style={{ color: "rgba(245,180,50,0.6)" }}>ADMIT ONE</span>
+                  <span className="text-[9px] tracking-widest font-bold" style={{ color: "#d62828" }}>THE STUB ARCHIVE</span>
+                  <span className="text-[9px]" style={{ color: "#d9a92b" }}>ADMIT ONE</span>
                 </div>
-                <p className="text-sm font-bold leading-snug mb-2" style={{ color: "#fff8ee" }}>{item.label}</p>
-                <p className="text-[10px] leading-snug" style={{ color: item.color }}>{item.sub}</p>
-                <div className="mt-4 flex gap-px items-end h-5 opacity-50">
+                <p className="text-sm font-bold leading-snug mb-2" style={{ color: "#ffffff" }}>{item.label}</p>
+                <p className="text-[10px] leading-snug" style={{ color: "#d9a92b" }}>{item.sub}</p>
+                <div className="mt-4 flex gap-px items-end h-5" style={{ opacity: 0.6 }}>
                   {[3,1,4,1,2,3,1,4,2,3,1,2,4,1,3].map((h, i) => (
-                    <div key={i} style={{ width: 2, height: `${h * 4}px`, backgroundColor: item.color }} />
+                    <div key={i} style={{ width: 2, height: `${h * 4}px`, backgroundColor: "#d9a92b" }} />
                   ))}
                 </div>
               </div>
@@ -169,15 +168,15 @@ export default function Home() {
         {/* ── PULL QUOTE — marquee treatment ── */}
         <section
           className="py-16 md:py-24 px-4 sm:px-6 text-center relative overflow-hidden"
-          style={{ backgroundColor: "#050302" }}
+          style={{ backgroundColor: "#0a0a0a" }}
         >
           {/* Stage-light glow behind text */}
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(224,56,61,0.12) 0%, transparent 70%)" }} />
           <div className="relative max-w-3xl mx-auto">
             <p className="text-xs font-bold tracking-widest uppercase mb-6" style={{ color: "var(--energy)" }}>● The Stub Archive Promise</p>
-            <p className="text-3xl md:text-5xl font-bold leading-tight" style={{ color: "#fff8ee" }}>
+            <p className="text-3xl md:text-5xl font-bold leading-tight" style={{ color: "#ffffff" }}>
               &ldquo;The ticket is gone.<br />
-              <span style={{ color: "var(--amber-accent)" }}>The feeling isn&apos;t.</span><br />
+              <span className="gold-text">The feeling isn&apos;t.</span><br />
               Now neither is the stub.&rdquo;
             </p>
             <div className="mt-10">
@@ -223,9 +222,9 @@ export default function Home() {
       <StickyCartBar />
       <footer
         className="py-10 px-6 text-center text-sm"
-        style={{ borderTop: "1px solid var(--border)", backgroundColor: "#050302", color: "var(--amber-subtle)" }}
+        style={{ borderTop: "1px solid var(--border)", backgroundColor: "#0a0a0a", color: "var(--muted)" }}
       >
-        <p className="font-bold mb-1" style={{ color: "var(--amber-accent)" }}>THE STUB ARCHIVE</p>
+        <p className="font-bold mb-1 gold-text">THE STUB ARCHIVE</p>
         <p style={{ color: "#6b5030" }}>Premium ticket stub reprints · Made for real fans</p>
         <div className="mt-4 flex justify-center gap-6">
           <Link href="/cart" className="hover:opacity-70 transition-opacity">Cart</Link>
