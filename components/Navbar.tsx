@@ -17,7 +17,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold tracking-tight" style={{ color: "var(--amber-heading)" }}>
-          RELIVE <span style={{ color: "var(--amber-accent)" }}>TICKETS</span>
+          STUB <span style={{ color: "var(--energy)" }}>ARCHIVE</span>
         </Link>
         <nav className="hidden md:flex gap-8 text-sm" style={{ color: "var(--amber-body)" }}>
           <Link href="/#how-it-works" className="transition-colors hover:opacity-70">How It Works</Link>

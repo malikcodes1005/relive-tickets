@@ -23,7 +23,7 @@ export const TIERS: Tier[] = [
   {
     id: "tier-2",
     name: "Stat Card Upgrade",
-    price: 24.99,
+    price: 26.99,
     description: "The full story, front and back.",
     badge: "Most Popular",
     features: [

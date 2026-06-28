@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Relive Tickets — Memorabilia That Feels Real",
-  description: "Premium ticket stub reprints with real packaging. Relive your favorite concerts, games, and events.",
+  title: "Stub Archive — Official Ticket Stub Reprints",
+  description: "Premium ticket stub reprints for concert goers and sports fans. Your greatest nights, preserved.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -11,6 +11,8 @@ export type CartItem = {
   eventName: string;
   eventDate: string;
   quantity: number;
+  photoDataUrl?: string;  // compressed base64 front-of-ticket image
+  backNotes?: string;     // tier 2 & 3 only
 };
 
 type CartStore = {

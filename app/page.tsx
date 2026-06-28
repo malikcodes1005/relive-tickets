@@ -1,19 +1,26 @@
 import Navbar from "@/components/Navbar";
 import TierCard from "@/components/TierCard";
+import HeroBackground from "@/components/HeroBackground";
 import { TIERS } from "@/lib/tiers";
 import Link from "next/link";
 
 const steps = [
-  { n: "01", title: "Pick Your Tier", body: "Choose Classic, Stat Card, or Display Edition based on how much you want to show off." },
-  { n: "02", title: "Tell Us the Event", body: "Enter the event name and date. We handle the rest — researching, designing, and printing your stub." },
-  { n: "03", title: "Receive Your Memory", body: "It arrives in a kraft mailer with a wax seal, ready to gift or display. Pure nostalgia." },
+  { n: "01", title: "Pick Your Tier", body: "Classic reprint, stat card, or full display piece — choose how you want to rep the night." },
+  { n: "02", title: "Tell Us the Show", body: "Drop the event name and date. We handle all the research, design, and printing. You just wait." },
+  { n: "03", title: "It Shows Up at Your Door", body: "Arrives in a kraft mailer sealed with wax, wrapped in twine. Opening it is half the experience." },
 ];
 
 const faqs = [
-  { q: "What events can I get a stub for?", a: "Concerts, sporting events, festivals, comedy shows — if it had a ticket, we can reprint it. Reach out if you're unsure." },
-  { q: "How long does it take?", a: "Orders typically ship within 5–7 business days. We're a small operation and take our time to get the details right." },
-  { q: "What size are the stubs?", a: "Every stub is printed at the standard ticket size: 3.5\" × 7.25\" — the same dimensions as a real event ticket." },
-  { q: "Can I order in bulk or get a custom design?", a: "Yes — email us for bulk orders, wedding favors, or full custom designs. We'll work something out." },
+  { q: "What events can I get a stub for?", a: "Concerts, playoff games, championship bouts, festivals, comedy shows — if you were there and it had a ticket, we can reprint it. Doesn't matter how old it is." },
+  { q: "How long does it take to ship?", a: "Most orders ship within 5–7 business days. We're a small crew that cares about the details, so we don't rush it." },
+  { q: "What size are the stubs?", a: "Every stub is printed at the authentic ticket size: 3.5\" × 7.25\" — the exact same dimensions as a real event ticket." },
+  { q: "Can I order multiple stubs or give them as a gift?", a: "Absolutely. The packaging is already gift-ready — kraft mailer, wax seal, the whole thing. Perfect for the fan who has everything." },
+];
+
+const testimonials = [
+  { quote: "I've been to 200+ shows. This is the first time I've been able to hold one in my hands again.", name: "Jordan M.", sub: "Concert fan, Chicago" },
+  { quote: "Got one for my dad's first Bulls game in 1991. He didn't say anything for a full minute.", name: "Tanya R.", sub: "Gift order, Atlanta" },
+  { quote: "The Display Edition is literally framed in my living room. People ask about it every single time.", name: "Marcus T.", sub: "Season ticket holder, LA" },
 ];
 
 export default function Home() {
@@ -21,67 +28,93 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        {/* Hero */}
-        <section
-          className="relative overflow-hidden py-28 px-6 text-center"
-          style={{ background: "linear-gradient(to bottom, color-mix(in srgb, var(--amber-accent) 8%, var(--background)), var(--background))" }}
-        >
-          <div className="max-w-3xl mx-auto">
-            <p className="text-sm font-semibold tracking-widest uppercase mb-4 fade-in-up" style={{ color: "var(--amber-accent)" }}>
-              Premium Ticket Stub Memorabilia
+        {/* ── HERO ── live concert strobe backdrop */}
+        <section className="relative overflow-hidden py-32 px-6 text-center" style={{ backgroundColor: "#020101", minHeight: "100svh" }}>
+          <HeroBackground />
+
+          {/* Photosensitivity notice */}
+          <div className="absolute top-3 right-4 z-20">
+            <span className="text-[10px] px-2 py-1 rounded" style={{ backgroundColor: "rgba(0,0,0,0.6)", color: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.1)" }}>
+              ⚠ Flashing lights
+            </span>
+          </div>
+
+          <div className="relative z-10 max-w-3xl mx-auto" style={{ paddingTop: "4rem" }}>
+            <p className="text-sm font-semibold tracking-widest uppercase mb-5 fade-in-up" style={{ color: "var(--energy)" }}>
+              ● LIVE NOW — Official Ticket Stub Reprints
             </p>
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight fade-in-up-2" style={{ color: "var(--amber-heading)" }}>
-              Some nights deserve<br />to be remembered.
+            <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] fade-in-up-2" style={{ color: "#fff8ee", textShadow: "0 2px 40px rgba(0,0,0,0.9), 0 0 80px rgba(0,0,0,0.6)" }}>
+              You were there.<br />
+              <span style={{ color: "var(--amber-accent)" }}>Now you can prove it.</span>
             </h1>
-            <p className="mt-6 text-lg max-w-xl mx-auto fade-in-up-3" style={{ color: "var(--amber-body)" }}>
-              We reprint your favorite event tickets as premium collector stubs — complete with packaging that feels like opening a gift.
+            <p className="mt-6 text-lg max-w-xl mx-auto fade-in-up-3" style={{ color: "#c4a06a", textShadow: "0 1px 20px rgba(0,0,0,0.8)" }}>
+              We turn your greatest nights — the sold-out shows, the overtime wins, the concerts you still talk about — into premium collector stubs that actually feel like something.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center fade-in-up-3">
-              <a
-                href="#tiers"
-                className="px-8 py-4 rounded-xl font-semibold transition-colors shadow-sm text-white btn-amber"
-              >
-                Shop Now
+              <a href="#tiers" className="px-8 py-4 rounded-xl font-bold text-white transition-colors shadow-lg btn-energy" style={{ fontSize: "1rem" }}>
+                Build Your Stub →
               </a>
               <a
                 href="#how-it-works"
                 className="px-8 py-4 rounded-xl font-semibold transition-colors"
-                style={{ border: "1px solid var(--border)", color: "var(--amber-body)", backgroundColor: "transparent" }}
+                style={{ border: "1px solid rgba(245,158,11,0.4)", color: "#c4a06a", backgroundColor: "rgba(245,158,11,0.06)" }}
               >
-                How It Works
+                See How It Works
               </a>
             </div>
           </div>
 
-          {/* Decorative stubs */}
-          <div className="mt-20 flex justify-center gap-4 opacity-40 pointer-events-none select-none">
+          {/* Stub cards — full contrast, visible */}
+          <div className="relative z-10 mt-20 flex justify-center gap-5">
             {[
-              { label: "Springsteen", sub: "1984", rot: "-2deg" },
-              { label: "Game 7", sub: "2016", rot: "2deg" },
-              { label: "Beyoncé", sub: "2023", rot: "-2deg" },
+              { label: "Bruce Springsteen", sub: "Born in the USA Tour · 1984", rot: "-3deg", color: "#e8c060" },
+              { label: "NBA Finals — Game 7", sub: "Cleveland vs Golden State · 2016", rot: "0deg", color: "#ff9a3c", scale: "1.08" },
+              { label: "Beyoncé — Renaissance", sub: "SoFi Stadium · Aug 2023", rot: "3deg", color: "#e8c060" },
             ].map((item) => (
               <div
                 key={item.label}
-                className="hidden md:flex flex-col w-36 rounded-lg p-3 text-xs font-mono shadow"
-                style={{ border: "2px solid var(--border)", backgroundColor: "var(--card)", transform: `rotate(${item.rot})`, color: "var(--amber-body)" }}
+                className="hidden md:flex flex-col w-44 rounded-xl p-4 font-mono stub-card-glow"
+                style={{
+                  background: "linear-gradient(160deg, #1e1206 0%, #2d1a08 100%)",
+                  border: `1px solid rgba(245,180,50,0.4)`,
+                  transform: `rotate(${item.rot}) scale(${item.scale ?? 1})`,
+                  color: item.color,
+                  transition: "transform 0.2s",
+                }}
               >
-                <div className="text-[10px] font-bold tracking-widest mb-2" style={{ color: "var(--amber-accent)" }}>ADMIT ONE</div>
-                <div className="text-sm font-bold leading-tight">{item.label}</div>
-                <div className="mt-1" style={{ color: "var(--amber-subtle)" }}>{item.sub}</div>
-                <div className="mt-4 pt-2 text-[10px]" style={{ borderTop: "1px dashed var(--border)", color: "var(--muted)" }}>RELIVE TICKETS</div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="text-[9px] tracking-widest font-bold" style={{ color: "var(--energy)" }}>STUB ARCHIVE</span>
+                  <span className="text-[9px]" style={{ color: "rgba(245,180,50,0.6)" }}>ADMIT ONE</span>
+                </div>
+                <p className="text-sm font-bold leading-snug mb-2" style={{ color: "#fff8ee" }}>{item.label}</p>
+                <p className="text-[10px] leading-snug" style={{ color: item.color }}>{item.sub}</p>
+                <div className="mt-4 flex gap-px items-end h-5 opacity-50">
+                  {[3,1,4,1,2,3,1,4,2,3,1,2,4,1,3].map((h, i) => (
+                    <div key={i} style={{ width: 2, height: `${h * 4}px`, backgroundColor: item.color }} />
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* How It Works */}
+        {/* ── EVENT TYPE BAR ── */}
+        <div
+          className="py-4 px-6 text-center text-xs font-bold tracking-widest overflow-hidden"
+          style={{ backgroundColor: "var(--energy)", color: "white" }}
+        >
+          🎸 CONCERTS &nbsp;·&nbsp; 🏀 PLAYOFF GAMES &nbsp;·&nbsp; 🎤 FESTIVAL SETS &nbsp;·&nbsp; 🏆 CHAMPIONSHIPS &nbsp;·&nbsp; ⚾ WORLD SERIES &nbsp;·&nbsp; 🎸 CONCERTS &nbsp;·&nbsp; 🏒 STANLEY CUP &nbsp;·&nbsp; 🎤 SOLD-OUT SHOWS
+        </div>
+
+        {/* ── HOW IT WORKS ── */}
         <section id="how-it-works" className="py-24 px-6" style={{ backgroundColor: "var(--background)" }}>
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-16" style={{ color: "var(--amber-heading)" }}>How It Works</h2>
+            <p className="text-center text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "var(--energy)" }}>Simple process</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16" style={{ color: "var(--amber-heading)" }}>From memory to your hands in days</h2>
             <div className="grid md:grid-cols-3 gap-10">
               {steps.map((s) => (
                 <div key={s.n} className="text-center">
-                  <div className="text-5xl font-bold mb-4" style={{ color: "var(--border)" }}>{s.n}</div>
+                  <div className="text-6xl font-bold mb-4" style={{ color: "var(--border)", fontVariantNumeric: "tabular-nums" }}>{s.n}</div>
                   <h3 className="text-lg font-bold mb-2" style={{ color: "var(--amber-heading)" }}>{s.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: "var(--amber-body)" }}>{s.body}</p>
                 </div>
@@ -90,16 +123,19 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Tiers */}
+        {/* ── TIERS ── */}
         <section
           id="tiers"
           className="py-24 px-6"
-          style={{ backgroundColor: "color-mix(in srgb, var(--amber-accent) 4%, var(--background))" }}
+          style={{ background: "linear-gradient(to bottom, color-mix(in srgb, var(--amber-accent) 5%, var(--background)), var(--background))" }}
         >
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-4" style={{ color: "var(--amber-heading)" }}>Choose Your Edition</h2>
+            <p className="text-center text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "var(--energy)" }}>Three editions</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "var(--amber-heading)" }}>
+              How do you want to rep the night?
+            </h2>
             <p className="text-center mb-16 max-w-xl mx-auto" style={{ color: "var(--amber-body)" }}>
-              Every tier ships in a kraft mailer with a wax seal. The higher you go, the more it feels like a collector&apos;s item.
+              Every order ships in a wax-sealed kraft mailer. Pick your edition, preview your stub live, and let us handle the rest.
             </p>
             <div className="grid md:grid-cols-3 gap-8">
               {TIERS.map((tier, i) => (
@@ -109,22 +145,52 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Brand quote */}
-        <section className="py-20 px-6 text-center" style={{ backgroundColor: "var(--amber-heading)", color: "var(--foreground)" }}>
-          <div className="max-w-2xl mx-auto">
-            <p className="text-2xl md:text-3xl font-bold leading-relaxed text-white">
-              &ldquo;The ticket is gone. The memory isn&apos;t.&rdquo;
-            </p>
-            <p className="mt-4 text-sm" style={{ color: "var(--amber-light, #f5c97a)", opacity: 0.8 }}>
-              Relive Tickets — handcrafted memorabilia for the nights you&apos;ll never forget.
-            </p>
+        {/* ── TESTIMONIALS ── */}
+        <section className="py-24 px-6" style={{ backgroundColor: "var(--background)" }}>
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-16" style={{ color: "var(--amber-heading)" }}>Real fans. Real nights.</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((t) => (
+                <div
+                  key={t.name}
+                  className="rounded-2xl p-6"
+                  style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}
+                >
+                  <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--amber-body)" }}>&ldquo;{t.quote}&rdquo;</p>
+                  <p className="text-sm font-bold" style={{ color: "var(--amber-heading)" }}>{t.name}</p>
+                  <p className="text-xs mt-0.5" style={{ color: "var(--muted)" }}>{t.sub}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* ── PULL QUOTE — marquee treatment ── */}
+        <section
+          className="py-24 px-6 text-center relative overflow-hidden"
+          style={{ backgroundColor: "#050302" }}
+        >
+          {/* Stage-light glow behind text */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(224,56,61,0.12) 0%, transparent 70%)" }} />
+          <div className="relative max-w-3xl mx-auto">
+            <p className="text-xs font-bold tracking-widest uppercase mb-6" style={{ color: "var(--energy)" }}>● The Stub Archive Guarantee</p>
+            <p className="text-3xl md:text-5xl font-bold leading-tight" style={{ color: "#fff8ee" }}>
+              &ldquo;The ticket is gone.<br />
+              <span style={{ color: "var(--amber-accent)" }}>The feeling isn&apos;t.</span><br />
+              Now neither is the stub.&rdquo;
+            </p>
+            <div className="mt-10">
+              <a href="#tiers" className="inline-block px-10 py-4 rounded-xl font-bold text-white btn-energy shadow-lg">
+                Build Your Stub Now
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
         <section id="faq" className="py-24 px-6" style={{ backgroundColor: "var(--background)" }}>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-16" style={{ color: "var(--amber-heading)" }}>Frequently Asked</h2>
+            <h2 className="text-3xl font-bold text-center mb-16" style={{ color: "var(--amber-heading)" }}>Got questions?</h2>
             <div className="space-y-6">
               {faqs.map((faq) => (
                 <div key={faq.q} className="pb-6" style={{ borderBottom: "1px solid var(--border)" }}>
@@ -135,14 +201,33 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ── FINAL CTA ── */}
+        <section
+          className="py-20 px-6 text-center"
+          style={{ background: "linear-gradient(to bottom, var(--background), color-mix(in srgb, var(--energy) 6%, var(--background)))" }}
+        >
+          <div className="max-w-xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "var(--amber-heading)" }}>Still thinking about it?</h2>
+            <p className="mb-8" style={{ color: "var(--amber-body)" }}>
+              That show meant something. Don&apos;t let it live only in your phone&apos;s camera roll.
+            </p>
+            <a href="#tiers" className="inline-block px-10 py-4 rounded-xl font-bold text-white btn-energy transition-colors shadow-lg">
+              Build Your Stub Now →
+            </a>
+          </div>
+        </section>
       </main>
 
-      <footer className="py-10 px-6 text-center text-sm" style={{ borderTop: "1px solid var(--border)", color: "var(--amber-subtle)" }}>
-        <p className="font-bold mb-1" style={{ color: "var(--amber-heading)" }}>RELIVE TICKETS</p>
-        <p>Premium ticket stub memorabilia · Made with care</p>
+      <footer
+        className="py-10 px-6 text-center text-sm"
+        style={{ borderTop: "1px solid var(--border)", backgroundColor: "#050302", color: "var(--amber-subtle)" }}
+      >
+        <p className="font-bold mb-1" style={{ color: "var(--amber-accent)" }}>STUB ARCHIVE</p>
+        <p style={{ color: "#6b5030" }}>Premium ticket stub reprints · Made for real fans</p>
         <div className="mt-4 flex justify-center gap-6">
           <Link href="/cart" className="hover:opacity-70 transition-opacity">Cart</Link>
-          <a href="mailto:hello@relivetickets.com" className="hover:opacity-70 transition-opacity">Contact</a>
+          <a href="mailto:hello@stubarchive.com" className="hover:opacity-70 transition-opacity">Contact</a>
         </div>
       </footer>
     </>

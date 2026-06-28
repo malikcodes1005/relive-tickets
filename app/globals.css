@@ -13,13 +13,17 @@
   --amber-btn: #d97706;
   --amber-btn-hover: #b45309;
   --amber-badge: #92400e;
+  /* energy accent — concert red */
+  --energy: #e0383d;
+  --energy-dark: #b82020;
+  --energy-glow: rgba(224, 56, 61, 0.35);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #141008;
+    --background: #0c0804;
     --foreground: #f5e6cc;
-    --card: #1e1609;
+    --card: #181008;
     --border: #3a2a14;
     --muted: #a07850;
     --amber-heading: #f5c97a;
@@ -29,6 +33,9 @@
     --amber-btn: #d97706;
     --amber-btn-hover: #b45309;
     --amber-badge: #fbbf24;
+    --energy: #ff4448;
+    --energy-dark: #e02020;
+    --energy-glow: rgba(255, 68, 72, 0.4);
   }
 }
 
@@ -50,6 +57,21 @@ body {
   background-color: var(--amber-btn-hover);
 }
 
+.btn-energy {
+  background-color: var(--energy);
+}
+.btn-energy:hover {
+  background-color: var(--energy-dark);
+}
+
+.glow-energy {
+  box-shadow: 0 0 0 2px var(--energy), 0 0 20px var(--energy-glow);
+}
+
+.stub-card-glow {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,180,50,0.3);
+}
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -57,3 +79,101 @@ body {
 .fade-in-up { animation: fadeInUp 0.7s ease both; }
 .fade-in-up-2 { animation: fadeInUp 0.7s 0.15s ease both; }
 .fade-in-up-3 { animation: fadeInUp 0.7s 0.3s ease both; }
+
+/* ── Concert strobe & sweep animations ── */
+
+@keyframes strobe-white {
+  0%   { opacity: 0; }
+  4%   { opacity: 0.95; }
+  8%   { opacity: 0; }
+  12%  { opacity: 0.85; }
+  16%  { opacity: 0; }
+  40%  { opacity: 0; }
+  44%  { opacity: 1; }
+  48%  { opacity: 0; }
+  52%  { opacity: 0.7; }
+  56%  { opacity: 0; }
+  80%  { opacity: 0; }
+  84%  { opacity: 0.9; }
+  88%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes strobe-red {
+  0%   { opacity: 0; }
+  6%   { opacity: 0.8; }
+  12%  { opacity: 0; }
+  50%  { opacity: 0; }
+  56%  { opacity: 0.9; }
+  60%  { opacity: 0.2; }
+  64%  { opacity: 0.8; }
+  70%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes strobe-amber {
+  0%   { opacity: 0.1; }
+  20%  { opacity: 0.6; }
+  30%  { opacity: 0.1; }
+  55%  { opacity: 0; }
+  58%  { opacity: 0.7; }
+  62%  { opacity: 0; }
+  85%  { opacity: 0.5; }
+  95%  { opacity: 0.1; }
+  100% { opacity: 0.1; }
+}
+
+@keyframes strobe-blue {
+  0%   { opacity: 0; }
+  10%  { opacity: 0.7; }
+  14%  { opacity: 0; }
+  18%  { opacity: 0.5; }
+  22%  { opacity: 0; }
+  65%  { opacity: 0; }
+  68%  { opacity: 0.8; }
+  72%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes strobe-purple {
+  0%   { opacity: 0; }
+  25%  { opacity: 0; }
+  30%  { opacity: 0.6; }
+  36%  { opacity: 0; }
+  70%  { opacity: 0; }
+  75%  { opacity: 0.7; }
+  80%  { opacity: 0.2; }
+  85%  { opacity: 0.6; }
+  90%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes beam-sweep-left {
+  0%   { transform: rotate(-35deg) translateX(0); opacity: 0; }
+  10%  { opacity: 0.7; }
+  50%  { transform: rotate(10deg) translateX(60px); opacity: 0.5; }
+  90%  { opacity: 0.7; }
+  100% { transform: rotate(-35deg) translateX(0); opacity: 0; }
+}
+
+@keyframes beam-sweep-right {
+  0%   { transform: rotate(35deg) translateX(0); opacity: 0; }
+  10%  { opacity: 0.6; }
+  50%  { transform: rotate(-10deg) translateX(-60px); opacity: 0.4; }
+  90%  { opacity: 0.6; }
+  100% { transform: rotate(35deg) translateX(0); opacity: 0; }
+}
+
+@keyframes crowd-pulse {
+  0%, 100% { opacity: 0.08; }
+  50%       { opacity: 0.18; }
+}
+
+/* Freeze everything for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .concert-light,
+  .concert-beam {
+    animation: none !important;
+    opacity: 0.12 !important;
+  }
+}

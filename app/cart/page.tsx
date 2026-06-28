@@ -39,11 +39,7 @@ export default function CartPage() {
           <p className="text-5xl mb-6">🎟️</p>
           <h1 className="text-2xl font-bold mb-2" style={{ color: "var(--amber-heading)" }}>Your cart is empty</h1>
           <p className="mb-8" style={{ color: "var(--amber-body)" }}>Add a ticket stub to get started.</p>
-          <Link
-            href="/#tiers"
-            className="px-6 py-3 rounded-xl font-semibold text-white transition-colors"
-            style={{ backgroundColor: "var(--amber-btn)" }}
-          >
+          <Link href="/#tiers" className="px-6 py-3 rounded-xl font-semibold text-white btn-amber transition-colors">
             Browse Editions
           </Link>
         </main>
@@ -63,37 +59,58 @@ export default function CartPage() {
             return (
               <div
                 key={i}
-                className="flex items-start gap-6 rounded-xl p-5"
+                className="rounded-xl p-5"
                 style={{ border: "1px solid var(--border)", backgroundColor: "var(--card)" }}
               >
-                <div className="flex-1">
-                  <p className="font-bold" style={{ color: "var(--amber-heading)" }}>{tier.name}</p>
-                  <p className="text-sm mt-0.5" style={{ color: "var(--amber-body)" }}>{item.eventName}</p>
-                  {item.eventDate && (
-                    <p className="text-xs mt-0.5" style={{ color: "var(--muted)" }}>{item.eventDate}</p>
+                <div className="flex items-start gap-4">
+                  {/* Photo thumbnail */}
+                  {item.photoDataUrl ? (
+                    <img
+                      src={item.photoDataUrl}
+                      alt="Event photo"
+                      className="w-14 h-14 rounded-lg object-cover shrink-0"
+                      style={{ border: "1px solid var(--border)" }}
+                    />
+                  ) : (
+                    <div
+                      className="w-14 h-14 rounded-lg shrink-0 flex items-center justify-center text-xl"
+                      style={{ backgroundColor: "color-mix(in srgb, var(--amber-accent) 10%, var(--background))", border: "1px solid var(--border)" }}
+                    >
+                      🎟️
+                    </div>
                   )}
-                </div>
-                <div className="flex items-center gap-3">
-                  <select
-                    value={item.quantity}
-                    onChange={(e) => updateQty(i, Number(e.target.value))}
-                    className="rounded-lg px-2 py-1 text-sm"
-                    style={{ border: "1px solid var(--border)", backgroundColor: "var(--background)", color: "var(--foreground)" }}
-                  >
-                    {[1, 2, 3, 4, 5].map((n) => (
-                      <option key={n} value={n}>{n}</option>
-                    ))}
-                  </select>
-                  <p className="font-semibold w-16 text-right" style={{ color: "var(--amber-heading)" }}>
-                    ${(tier.price * item.quantity).toFixed(2)}
-                  </p>
-                  <button
-                    onClick={() => removeItem(i)}
-                    className="transition-colors hover:opacity-70"
-                    style={{ color: "var(--muted)" }}
-                  >
-                    <Trash2 size={16} />
-                  </button>
+
+                  <div className="flex-1 min-w-0">
+                    <p className="font-bold" style={{ color: "var(--amber-heading)" }}>{tier.name}</p>
+                    <p className="text-sm mt-0.5 truncate" style={{ color: "var(--amber-body)" }}>{item.eventName}</p>
+                    {item.eventDate && (
+                      <p className="text-xs mt-0.5" style={{ color: "var(--muted)" }}>{item.eventDate}</p>
+                    )}
+                    {item.backNotes && (
+                      <p className="text-xs mt-1.5 italic line-clamp-2" style={{ color: "var(--muted)" }}>
+                        Back: {item.backNotes}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-3 shrink-0">
+                    <select
+                      value={item.quantity}
+                      onChange={(e) => updateQty(i, Number(e.target.value))}
+                      className="rounded-lg px-2 py-1 text-sm"
+                      style={{ border: "1px solid var(--border)", backgroundColor: "var(--background)", color: "var(--foreground)" }}
+                    >
+                      {[1, 2, 3, 4, 5].map((n) => (
+                        <option key={n} value={n}>{n}</option>
+                      ))}
+                    </select>
+                    <p className="font-semibold w-16 text-right" style={{ color: "var(--amber-heading)" }}>
+                      ${(tier.price * item.quantity).toFixed(2)}
+                    </p>
+                    <button onClick={() => removeItem(i)} className="transition-opacity hover:opacity-60">
+                      <Trash2 size={16} style={{ color: "var(--muted)" }} />
+                    </button>
+                  </div>
                 </div>
               </div>
             );
@@ -106,14 +123,20 @@ export default function CartPage() {
             <p className="text-3xl font-bold" style={{ color: "var(--amber-heading)" }}>${total().toFixed(2)}</p>
             <p className="text-xs mt-1" style={{ color: "var(--muted)" }}>Shipping calculated at checkout</p>
           </div>
+
           <button
             onClick={handleCheckout}
             disabled={loading}
-            className="px-10 py-4 rounded-xl font-semibold text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-            style={{ backgroundColor: "var(--amber-btn)" }}
+            className="px-10 py-4 rounded-xl font-semibold text-white btn-amber transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {loading ? "Redirecting…" : "Checkout with Stripe →"}
           </button>
+
+          {/* Privacy disclosure */}
+          <p className="text-xs text-center max-w-sm" style={{ color: "var(--muted)" }}>
+            By proceeding you agree that your order details — including any photos and notes you&apos;ve provided — will be used solely to produce and fulfill your order. Your payment and personal information is processed securely by Stripe. We do not sell or share your data with third parties.
+          </p>
+
           <Link href="/" className="text-sm transition-opacity hover:opacity-70" style={{ color: "var(--amber-body)" }}>
             ← Continue Shopping
           </Link>

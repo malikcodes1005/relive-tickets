@@ -39,7 +39,15 @@ export async function POST(req: NextRequest) {
     cancel_url: `${process.env.NEXT_PUBLIC_URL}/cart`,
     shipping_address_collection: { allowed_countries: ["US", "CA", "GB", "AU"] },
     metadata: {
-      items: JSON.stringify(items.map((i) => ({ tierId: i.tierId, eventName: i.eventName, eventDate: i.eventDate }))),
+      items: JSON.stringify(
+        items.map((i) => ({
+          tierId: i.tierId,
+          eventName: i.eventName,
+          eventDate: i.eventDate,
+          backNotes: i.backNotes ?? "",
+          hasPhoto: !!i.photoDataUrl,
+        }))
+      ),
     },
   });
 
