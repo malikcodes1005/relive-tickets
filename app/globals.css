@@ -5,14 +5,14 @@
   --foreground: #1a1207;
   --card: #ffffff;
   --border: #e8d9c0;
-  --muted: #a07850;
-  --amber-heading: #7c3d0f;
-  --amber-body: #92580a;
-  --amber-subtle: #b07030;
-  --amber-accent: #d97706;
+  --muted: #906040;
+  --amber-heading: #6b2e00;
+  --amber-body: #7a3a00;
+  --amber-subtle: #9a5010;
+  --amber-accent: #c05e00;
   --amber-btn: #d97706;
   --amber-btn-hover: #b45309;
-  --amber-badge: #92400e;
+  --amber-badge: #7c2d00;
   /* energy accent — concert red */
   --energy: #e0383d;
   --energy-dark: #b82020;
@@ -22,14 +22,14 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0c0804;
-    --foreground: #f5e6cc;
+    --foreground: #fff8ee;
     --card: #181008;
     --border: #3a2a14;
-    --muted: #a07850;
-    --amber-heading: #f5c97a;
-    --amber-body: #d4a55a;
-    --amber-subtle: #a07840;
-    --amber-accent: #f59e0b;
+    --muted: #b08860;
+    --amber-heading: #ffe9a0;
+    --amber-body: #f0c870;
+    --amber-subtle: #c89040;
+    --amber-accent: #fbbf24;
     --amber-btn: #d97706;
     --amber-btn-hover: #b45309;
     --amber-badge: #fbbf24;
