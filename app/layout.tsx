@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Stub Archive — Official Ticket Stub Reprints",
+  title: "The Stub Archive — Official Ticket Stub Reprints",
   description: "Premium ticket stub reprints for concert goers and sports fans. Your greatest nights, preserved.",
 };
 

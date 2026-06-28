@@ -61,7 +61,7 @@ export default function TicketPreview({ eventName, eventDate, tierName, isHolo, 
           <div className="relative px-4 pt-4 pb-4">
             <div className="flex justify-between items-start mb-3">
               <div>
-                <p className="text-[9px] tracking-widest font-bold" style={{ color: "#f59e0b" }}>STUB ARCHIVE</p>
+                <p className="text-[9px] tracking-widest font-bold" style={{ color: "#f59e0b" }}>THE STUB ARCHIVE</p>
                 <p className="text-[8px] tracking-widest mt-0.5" style={{ color: photoDataUrl ? "#e0c080" : "#a07030" }}>OFFICIAL REPRINT</p>
               </div>
               <div className="text-right">
@@ -96,7 +96,7 @@ export default function TicketPreview({ eventName, eventDate, tierName, isHolo, 
 
             <div className="flex justify-between items-center">
               <div>
-                <p className="text-[8px]" style={{ color: photoDataUrl ? "#e0c080" : "#a07030" }}>STUB ARCHIVE</p>
+                <p className="text-[8px]" style={{ color: photoDataUrl ? "#e0c080" : "#a07030" }}>THE STUB ARCHIVE</p>
                 <p className="text-[9px] font-bold" style={{ color: "#f5c97a" }}>KEEP THIS STUB</p>
               </div>
               <div className="flex gap-px items-end h-6">

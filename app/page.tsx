@@ -84,7 +84,7 @@ export default function Home() {
                 }}
               >
                 <div className="flex justify-between items-start mb-3">
-                  <span className="text-[9px] tracking-widest font-bold" style={{ color: "var(--energy)" }}>STUB ARCHIVE</span>
+                  <span className="text-[9px] tracking-widest font-bold" style={{ color: "var(--energy)" }}>THE STUB ARCHIVE</span>
                   <span className="text-[9px]" style={{ color: "rgba(245,180,50,0.6)" }}>ADMIT ONE</span>
                 </div>
                 <p className="text-sm font-bold leading-snug mb-2" style={{ color: "#fff8ee" }}>{item.label}</p>
@@ -174,7 +174,7 @@ export default function Home() {
           {/* Stage-light glow behind text */}
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(224,56,61,0.12) 0%, transparent 70%)" }} />
           <div className="relative max-w-3xl mx-auto">
-            <p className="text-xs font-bold tracking-widest uppercase mb-6" style={{ color: "var(--energy)" }}>● The Stub Archive Guarantee</p>
+            <p className="text-xs font-bold tracking-widest uppercase mb-6" style={{ color: "var(--energy)" }}>● The Stub Archive Promise</p>
             <p className="text-3xl md:text-5xl font-bold leading-tight" style={{ color: "#fff8ee" }}>
               &ldquo;The ticket is gone.<br />
               <span style={{ color: "var(--amber-accent)" }}>The feeling isn&apos;t.</span><br />
@@ -225,11 +225,11 @@ export default function Home() {
         className="py-10 px-6 text-center text-sm"
         style={{ borderTop: "1px solid var(--border)", backgroundColor: "#050302", color: "var(--amber-subtle)" }}
       >
-        <p className="font-bold mb-1" style={{ color: "var(--amber-accent)" }}>STUB ARCHIVE</p>
+        <p className="font-bold mb-1" style={{ color: "var(--amber-accent)" }}>THE STUB ARCHIVE</p>
         <p style={{ color: "#6b5030" }}>Premium ticket stub reprints · Made for real fans</p>
         <div className="mt-4 flex justify-center gap-6">
           <Link href="/cart" className="hover:opacity-70 transition-opacity">Cart</Link>
-          <a href="mailto:hello@stubarchive.com" className="hover:opacity-70 transition-opacity">Contact</a>
+          <a href="mailto:hello@thestubarchive.com" className="hover:opacity-70 transition-opacity">Contact</a>
         </div>
       </footer>
     </>
