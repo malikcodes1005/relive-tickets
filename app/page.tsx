@@ -8,14 +8,14 @@ import Link from "next/link";
 const steps = [
   { n: "01", title: "Pick Your Tier", body: "Classic reprint, stat card, or full display piece — choose how you want to rep the night." },
   { n: "02", title: "Tell Us the Show", body: "Drop the event name and date. We handle all the research, design, and printing. You just wait." },
-  { n: "03", title: "It Shows Up at Your Door", body: "Arrives in a kraft mailer sealed with wax, wrapped in twine. Opening it is half the experience." },
+  { n: "03", title: "It Shows Up at Your Door", body: "Arrives in premium packaging, wrapped in twine. Opening it is half the experience." },
 ];
 
 const faqs = [
   { q: "What events can I get a stub for?", a: "Concerts, playoff games, championship bouts, festivals, comedy shows — if you were there and it had a ticket, we can reprint it. Doesn't matter how old it is." },
   { q: "How long does it take to ship?", a: "Most orders ship within 5–7 business days. We're a small crew that cares about the details, so we don't rush it." },
   { q: "What size are the stubs?", a: "Every stub is printed at the authentic ticket size: 3.5\" × 7.25\" — the exact same dimensions as a real event ticket." },
-  { q: "Can I order multiple stubs or give them as a gift?", a: "Absolutely. The packaging is already gift-ready — kraft mailer, wax seal, the whole thing. Perfect for the fan who has everything." },
+  { q: "Can I order multiple stubs or give them as a gift?", a: "Absolutely. The packaging is already gift-ready straight out of the box. Perfect for the fan who has everything." },
 ];
 
 const testimonials = [
@@ -136,7 +136,7 @@ export default function Home() {
               How do you want to rep the night?
             </h2>
             <p className="text-center mb-16 max-w-xl mx-auto" style={{ color: "var(--amber-body)" }}>
-              Every order ships in a wax-sealed kraft mailer. Pick your edition, preview your stub live, and let us handle the rest.
+              Every order ships in premium packaging. Pick your edition, preview your stub live, and let us handle the rest.
             </p>
             <div className="grid md:grid-cols-3 gap-8">
               {TIERS.map((tier, i) => (

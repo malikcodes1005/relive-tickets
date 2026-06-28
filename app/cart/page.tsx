@@ -8,9 +8,11 @@ import { useState } from "react";
 export default function CartPage() {
   const { items, removeItem, updateQty, total, clear } = useCart();
   const [loading, setLoading] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
   const handleCheckout = async () => {
     setLoading(true);
+    setCheckoutError(null);
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
@@ -21,11 +23,13 @@ export default function CartPage() {
       if (data.url) {
         clear();
         window.location.href = data.url;
+      } else if (res.status === 503) {
+        setCheckoutError("Checkout is being set up — payments will be live shortly. Check back soon!");
       } else {
-        alert("Checkout error. Please try again.");
+        setCheckoutError(data.error || "Something went wrong. Please try again.");
       }
     } catch {
-      alert("Something went wrong. Please try again.");
+      setCheckoutError("Unable to reach checkout. Check your connection and try again.");
     } finally {
       setLoading(false);
     }
@@ -111,10 +115,16 @@ export default function CartPage() {
             <p className="text-xs mt-1" style={{ color: "var(--muted)" }}>Shipping calculated at checkout</p>
           </div>
 
+          {checkoutError && (
+            <div className="w-full text-center text-sm px-4 py-3 rounded-xl" style={{ backgroundColor: "color-mix(in srgb, var(--energy) 12%, var(--card))", border: "1px solid var(--energy)", color: "var(--energy)" }}>
+              {checkoutError}
+            </div>
+          )}
+
           <button
             onClick={handleCheckout}
             disabled={loading}
-            className="px-10 py-4 rounded-xl font-semibold text-white btn-amber transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+            className="px-10 py-4 rounded-xl font-semibold text-white btn-energy transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {loading ? "Redirecting…" : "Checkout with Stripe →"}
           </button>
