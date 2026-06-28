@@ -16,7 +16,6 @@ export const TIERS: Tier[] = [
     features: [
       "3.5″ × 7.25″ printed ticket stub",
       "Protective sleeve",
-      "Wax seal packaging",
       "Thank-you card",
     ],
   },
@@ -30,7 +29,6 @@ export const TIERS: Tier[] = [
       "Everything in Classic Reprint",
       "Back-of-card event recap & stats",
       "Premium hard case",
-      "Twine-wrapped presentation",
     ],
   },
   {
@@ -43,7 +41,6 @@ export const TIERS: Tier[] = [
       "Everything in Stat Card Upgrade",
       "Holographic foil finish",
       "Display stand included",
-      "Premium gift presentation",
     ],
   },
 ];

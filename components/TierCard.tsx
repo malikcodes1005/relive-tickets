@@ -86,7 +86,7 @@ export default function TierCard({ tier, delay = 0 }: { tier: Tier; delay?: numb
       <div className="px-8 pb-6">
         <button
           onClick={() => setOpen((v) => !v)}
-          className="w-full py-3 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2 text-white btn-amber"
+          className="w-full py-3 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2 text-white btn-energy"
         >
           Select Edition
           <ChevronDown
